@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  snowflake-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: snowflake-id-generator
+    ports:
+      - "8080:8080"
+    environment:
+      - RUST_LOG=info
+    command: >
+      ./snowflake_server
+      --host 0.0.0.0
+      --port 8080
+      --worker-id 1
+      --datacenter-id 1
+      --time-provider cached
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  default:
+    name: snowflake-network

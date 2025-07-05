@@ -1,0 +1,32 @@
+# 排除构建产物
+target/
+**/*.rs.bk
+
+# 排除 IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 排除版本控制文件
+.git/
+.gitignore
+
+# 排除文档和示例
+README.md
+examples/
+*.md
+
+# 排除 Docker 文件
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# 排除测试文件
+tests/
+
+# 排除临时文件
+*.tmp
+*.temp
+*.log

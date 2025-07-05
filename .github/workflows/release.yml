@@ -1,0 +1,29 @@
+name: Build Linux Release
+
+on:
+  push:
+    tags:
+      - 'v*'   # 只有打 tag 时才自动发布
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Build release binary
+        run: cargo build --release --bin snowflake_server
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: snowflake_server-linux
+          path: target/release/snowflake_server

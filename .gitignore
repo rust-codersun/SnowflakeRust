@@ -1,0 +1,36 @@
+# Rust 编译输出
+/target/
+
+# IDE 配置
+/.idea/
+/.vscode/
+
+# 编译生成的二进制
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+
+# Cargo 包缓存
+Cargo.lock
+
+# 日志和临时文件
+*.log
+*.tmp
+*.swp
+
+# 覆盖率和测试输出
+/coverage/
+/benchmarks/
+
+# 其他常见忽略
+.DS_Store
+Thumbs.db
+
+# 忽略本地配置
+.env
+.env.*
+
+# 忽略 docker 构建缓存
+**/docker-cache/
