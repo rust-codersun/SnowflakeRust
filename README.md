@@ -187,7 +187,7 @@ cargo run --bin snowflake_server -- --port 8080 --worker-id 1 --datacenter-id 1
 | `/parse/{id}` | GET | 解析雪花ID | `curl http://localhost:8080/parse/1234567890` |
 | `/stats` | GET | 服务器统计信息 | `curl http://localhost:8080/stats` |
 
-演示地址： http://id.demo.codersun.cn  
+演示地址： http://id.demo.codersun.cn/id
 
 ### 响应示例
 
